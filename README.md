@@ -5,6 +5,6 @@ version 1.4.1.
 
 ## Build & development
 
-Run `apaches sever` for preview.
+Run `apaches server` for preview.
 
 
