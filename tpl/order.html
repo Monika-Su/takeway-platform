@@ -1,0 +1,35 @@
+<ng-include src="'tpl/header.html'"></ng-include>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div ng-hide="isSubmited" class="panel-body">
+      <form action="">
+        <div class="form-group">
+          <label for="user_name">收货人姓名：</label>
+          <input type="text" class="form-control" id="user_name" ng-model="user_name"/>
+        </div>
+        <div class="form-group">
+          <label>性别：</label><br>
+          <label class="radio-inline">
+            <input type="radio" name="sex" value="1" ng-model="sex"/>女士
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" value="2" ng-model="sex"/>先生
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="phone">电话：</label>
+          <input type="text" id="phone" ng-model="phone" placeholder=""/>
+        </div>
+        <div class="form-group">
+          <label for="addr">送餐地址：</label>
+          <textarea id="addr" rows="3" ng-model="addr"></textarea>
+        </div>
+        <button ng-click="submitOrder()" class="btn btn-success btn-block">确认下单</button>
+      </form>
+      <div ng-show="isSubmited" class="alert alert-success">订餐成功！您的编号为：{{oid}}，您可以在用户中心中查看订单状态</div>
+    </div>
+  </div>
+</div>
+
+<ng-include src="'tpl/footer.html'"></ng-include>

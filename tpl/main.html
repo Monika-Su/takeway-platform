@@ -1,0 +1,63 @@
+
+<ng-include src="'tpl/header.html'"></ng-include>
+
+<div class="mian container">
+  <form>
+    <div class="form-group has-feedback">
+      <label class="sr-only" for="kw">关键字</label>
+      <input ng-model="kw" class="form-control" id="kw" type="text" placeholder="搜索菜品名称和原料..."/>
+      <span class="form-control-feedback glyphicon glyphicon-search"></span>
+    </div>
+  </form>
+  <div class="list-group">
+    <a class="list-group-item" ng-repeat="d in dishList" href="#/detail/{{d.did}}">
+      <div class="media">
+        <div class="media-left">
+          <img class="media-object" ng-src="img/{{d.img_sm}}" alt=""/>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{d.name}}</h4>
+          <p>{{d.material}}</p>
+          <p class="price">{{d.price | currency:'￥'}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<button ng-if="hasMore" ng-click="loadMore()" class="btn btn-info btn-block">
+  <span ng-if="!isLoading">加载更多</span>
+  <img ng-if="isLoading" src="img/loading.gif" alt="" style="width:20px;"/>
+</button>
+
+<div ng-if="!hasMore" class="alert alert-danger">
+  <span class="glyphicon glyphicon-alert"></span>没有更多数据了。。。
+</div>
+
+
+<ng-include src="'tpl/footer.html'"></ng-include>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
